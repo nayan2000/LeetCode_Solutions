@@ -1,5 +1,12 @@
 # LeetCode Solutions in C++ and python3
+Note: The README is written wrt to a terminal based OS(Ubuntu and the likes), some commands may differ for MAC and/or Windows.
+### Create VirtualEnvironment(Suggested, but Optional)
++ Create a virtualenvironment named venv
+<pre>virtualenv -p python3 venv</pre>
++ Activate virtualenvironment
+<pre>source venv/bin/activate</pre>
 
+### Install Requirements(Required if you want the filename to be copied to clipboard)
 <pre>pip install -r requirements.txt</pre> 
 ## For generating filename and copying it to clipboard
 <pre>
