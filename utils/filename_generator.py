@@ -1,5 +1,10 @@
-
 '''
+    To run:
+    (If in utils folder)
+    python filename_generator.py
+    (If in the project directory)
+    python utils/filename_generator.py
+
     3 inputs:-
     -> FileExtension: 0 for CPP, 1 for Python, 2 for Java
     
