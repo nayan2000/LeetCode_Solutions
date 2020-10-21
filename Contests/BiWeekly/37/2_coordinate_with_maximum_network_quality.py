@@ -15,7 +15,6 @@ def getMin(x1, x2):
         else:
             return 0
 
-
 class Solution:
     def bestCoordinate(self, towers: List[List[int]], radius: int) -> List[int]:
         towers = sorted(towers, key=lambda x: -x[2])
