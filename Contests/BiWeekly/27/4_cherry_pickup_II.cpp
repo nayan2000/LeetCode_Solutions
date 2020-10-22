@@ -11,7 +11,8 @@ public:
         int res = 0;
         res = grid[r][c1];
         
-        if(c1 != c2) //c1 and c2 are bound because of same depth
+        //if both are at different columns
+        if(c1 != c2)
             res += grid[r][c2];
         
         int temp = 0, maxPossible = 0;
