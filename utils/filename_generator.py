@@ -29,6 +29,9 @@
         19_minimum_domino_rotations_for_equal_row.py
 
 '''
+
+import config
+
 from background_colors import bcolors
 import re
 
@@ -49,23 +52,36 @@ def get_extension(extension):
         1: '.py',
         2: '.java'
     }
-    return FILE_EXTENSIONS.get(extension,FILE_EXTENSIONS[0])
+    return FILE_EXTENSIONS.get(extension,FILE_EXTENSIONS[config.DEFAULT_EXTENSION])
 
 def get_filename():
     print('\n FILE EXTENSIONS: 0 for CPP, 1 for Python, 2 for Java\n')
-    extension = int(input('File Extension: '))
-    problem_number = int(input('\nProblem Number: '))
+
+    try:
+        extension = int(input('File Extension: '))
+    except:
+        extension = config.DEFAULT_EXTENSION
+
+    try:
+        problem_number = int(input('\nProblem Number: '))
+    except:
+        problem_number = ''
+
     problem_slug = input('\nProblem Title/Slug: ').strip().lower().replace('-','_').replace(' ','_')
     problem_no_format = re.findall('^\d*[.]',problem_slug)
     problem_slug = problem_slug.replace('.','')
-    if problem_no_format:
+
+    if problem_no_format or not problem_number:
         # doesnt require explicity int() typecast as it will be used in string only
         filename = f'{problem_slug}{get_extension(extension)}'
+
     else:
         filename = f'{problem_number}_{problem_slug}{get_extension(extension)}'
+
     if to_copy:
         print(f'\n{bcolors.BOLD}{bcolors.OKCYAN}FileName: {filename} has been copied to clipboard.{bcolors.ENDC}')
         copy_to_clipboard(filename)
+
     else:
         print(f'\n{bcolors.BOLD}{bcolors.OKCYAN}FileName: {filename}{bcolors.ENDC}')
 
