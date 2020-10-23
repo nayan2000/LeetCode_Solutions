@@ -30,6 +30,7 @@
 
 '''
 from background_colors import bcolors
+import re
 
 try:
     import pyperclip
@@ -54,8 +55,11 @@ def get_filename():
     print('\n FILE EXTENSIONS: 0 for CPP, 1 for Python, 2 for Java\n')
     extension = int(input('File Extension: '))
     problem_number = int(input('\nProblem Number: '))
-    problem_slug = input('\nProblem Title/Slug: ').strip().lower().replace('.','').replace('-','_').replace(' ','_')
-    if problem_slug[0].isdigit():
+    problem_slug = input('\nProblem Title/Slug: ').strip().lower().replace('-','_').replace(' ','_')
+    problem_no_format = re.findall('^\d*[.]',problem_slug)
+    problem_slug = problem_slug.replace('.','')
+    if problem_no_format:
+        # doesnt require explicity int() typecast as it will be used in string only
         filename = f'{problem_slug}{get_extension(extension)}'
     else:
         filename = f'{problem_number}_{problem_slug}{get_extension(extension)}'
