@@ -6,6 +6,12 @@ class Solution:
 # SinglePass
 class Solution:
     def average(self, salary: List[int]) -> float:
+        '''
+            The next 2 lines basically are for optimisation
+            In python, local processing is faster
+            So for functions which will be used repeatedly, its always good to
+            assign them as a variable and use that.
+        '''
         max1 = max
         min1 = min
         n = len(salary)
