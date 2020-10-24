@@ -41,7 +41,7 @@ try:
 except ModuleNotFoundError:
     to_copy = False
     print(f"{bcolors.BOLD}{bcolors.FAIL}The Module Pyperclip not found. You need to manually copy the filename.{bcolors.ENDC}")
-    print(f"{bcolors.BOLD}{bcolors.FAIL}Run pip3 install pyperclip to fix this.{bcolors.ENDC}")
+    print(f"{bcolors.BOLD}{bcolors.FAIL}Is the Virtual Environment activated? If yes, Run pip3 install pyperclip to fix this.{bcolors.ENDC}")
 
 def copy_to_clipboard(text):
     pyperclip.copy(text)
